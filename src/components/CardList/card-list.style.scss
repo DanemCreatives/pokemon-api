@@ -1,0 +1,36 @@
+.card-list {
+  @apply pt-28 relative;
+
+  &__section {
+    min-height: 900px;
+    @apply relative xl:h-screen py-32 sm:pt-44 sm:pb-24 xl:py-24 flex items-center;
+
+    &:nth-child(odd) {
+      @apply bg-primary;
+
+      .card-list__title path {
+        @apply stroke-current text-secondary;
+      }
+    }
+
+    &:nth-child(even) {
+      @apply bg-secondary;
+    }
+
+    .col {
+      @apply pb-32 sm:pb-24 lg:pb-36 xl:pb-0;
+
+      &:last-child {
+        @apply pb-0 sm:pb-10 xl:pb-0;
+      }
+    }
+  }
+
+  &__title {
+    @apply absolute transform -translate-y-2/3 top-0 w-full xl:w-auto;
+  }
+
+  &__actions {
+    @apply absolute bottom-0 inset-x-0 flex items-center justify-center py-8 sm:py-12;
+  }
+}

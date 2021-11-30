@@ -1,0 +1,11 @@
+.search {
+  @apply mt-8 relative lg:max-w-xl;
+
+  &__input {
+    @apply w-full text-base lg:text-lg text-center lg:text-left;
+  }
+
+  &__btn {
+    @apply w-full lg:w-auto mt-4 lg:mt-0 lg:absolute right-0 inset-y-0 text-base lg:text-lg;
+  }
+}

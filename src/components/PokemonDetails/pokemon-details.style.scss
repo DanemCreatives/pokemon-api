@@ -1,0 +1,86 @@
+.pokemon-details {
+  @apply pt-6 pb-12 lg:py-6 px-6 sm:px-8 w-full lg:h-full;
+
+  &__header {
+    @apply font-bold capitalize text-2xl lg:text-3xl;
+  }
+
+  &__categories {
+    @apply pb-2 pt-4;
+  }
+
+  &__row-categories {
+    @apply py-2;
+  }
+
+  &__row-assets {
+    @apply py-2 border-b border-gray-100;
+
+    &:last-child {
+      @apply border-0;
+    }
+
+    $assets: (
+      "hp": #6eddae,
+      "attack": #a52625,
+      "defense": #1146d2,
+      "special-attack": #29d2e8,
+      "special-defense": #f2df8f,
+      "speed": #d238a9,
+    );
+
+    @each $name, $color in $assets {
+      &--#{$name} {
+        .pokemon-details__fill {
+          background-color: $color;
+        }
+      }
+    }
+  }
+
+  &__title {
+    @apply font-bold text-base lg:text-lg;
+  }
+
+  &__value-type {
+    @apply px-2 relative capitalize text-xs;
+
+    &:after {
+      content: "";
+      width: 1px;
+      @apply h-3 bg-black absolute right-0 top-1/2 transform -translate-y-1/2;
+    }
+
+    &:first-child {
+      @apply pl-0;
+    }
+
+    &:last-child {
+      @apply pr-0;
+
+      &:after {
+        @apply hidden;
+      }
+    }
+  }
+
+  &__attribute {
+    @apply text-xs font-medium capitalize;
+  }
+
+  &__worth {
+    @apply flex items-center;
+  }
+
+  &__gauge {
+    @apply w-full bg-grey h-1 rounded;
+  }
+
+  &__fill {
+    @apply h-1 rounded block;
+  }
+
+  &__digit {
+    @apply font-bold text-xs pl-4;
+  }
+}

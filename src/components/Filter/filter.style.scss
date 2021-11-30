@@ -1,0 +1,44 @@
+.filter {
+  @apply pt-6 lg:pt-14;
+
+  &__cta {
+    @apply flex items-center cursor-pointer;
+  }
+
+  &__icon-container {
+    @apply transition duration-200 transform;
+
+    &.active {
+      @apply rotate-180;
+    }
+  }
+
+  &__icon {
+    @apply w-7 h-7;
+  }
+
+  &__text {
+    @apply pl-2 text-gray-500 font-semibold;
+  }
+
+  &__category {
+    flex-basis: 50%;
+    @apply flex justify-evenly items-center py-3 cursor-pointer;
+
+    @screen lg {
+      flex-basis: 25%;
+    }
+
+    @screen xl {
+      flex-basis: 10%;
+    }
+
+    input {
+      @apply w-5 h-5;
+    }
+
+    label {
+      @apply capitalize font-light text-gray-500 cursor-pointer w-full pl-4;
+    }
+  }
+}

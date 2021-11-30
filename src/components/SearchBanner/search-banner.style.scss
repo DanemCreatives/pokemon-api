@@ -1,0 +1,37 @@
+.search-banner {
+  min-height: 600px;
+  @apply flex justify-center 2xl:items-center pt-10 pb-10 lg:pt-20 2xl:pb-20;
+
+  @screen 2xl {
+    height: 80vh;
+  }
+
+  &__header {
+    @apply max-w-lg leading-none text-4xl lg:text-5xl;
+
+    span {
+      @apply font-bold;
+    }
+  }
+
+  &__intro {
+    @apply lg:pr-10 pt-4 mx-auto;
+  }
+
+  &__textbox {
+    @apply 2xl:pr-36;
+  }
+
+  &__paragraph {
+    @apply font-light;
+  }
+
+  &__flag {
+    @apply font-medium;
+  }
+
+  &__paragraph,
+  &__flag {
+    @apply text-gray-700 leading-loose text-base lg:text-xl;
+  }
+}

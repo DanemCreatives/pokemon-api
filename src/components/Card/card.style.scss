@@ -1,0 +1,12 @@
+.card {
+  @apply rounded-2xl bg-white flex h-full flex-col justify-between transition duration-500 transform hover:scale-105 hover:shadow-2xl;
+
+  &__canvas {
+    @apply bg-tertiary rounded-t-2xl h-40 relative;
+  }
+
+  &__img {
+    height: 280px;
+    @apply absolute right-0 bottom-0 left-1/2 transform -translate-x-1/2;
+  }
+}

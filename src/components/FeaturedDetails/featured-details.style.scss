@@ -1,0 +1,73 @@
+.featured-details {
+  @apply py-12 md:pt-20 md:pb-28;
+
+  $types: (
+    "normal": #bebebe,
+    "fighting": #ed9e6c,
+    "flying": #94c6e2,
+    "poison": #c0daa3,
+    "ground": #d6bca6,
+    "rock": #928884,
+    "bug": #a6b9a2,
+    "ghost": #a499af,
+    "steel": #bdbdbd,
+    "fire": #f19b68,
+    "water": #7ab4eb,
+    "grass": #60dd71,
+    "electric": #e8eb5a,
+    "psychic": #fff7ae,
+    "ice": #888ae9,
+    "dragon": #d88b8f,
+    "dark": #6e6e6e,
+    "fairy": #eea5db,
+    "unknown": #464646,
+    "shadow": #000000,
+  );
+
+  @each $name, $color in $types {
+    &--#{$name} {
+      background-color: $color;
+    }
+  }
+
+  &__header {
+    @apply text-4xl lg:text-5xl leading-none text-center font-bold text-white filter drop-shadow-lg pb-10 capitalize;
+  }
+
+  &__canvas {
+    @apply bg-tertiary rounded-lg flex items-center justify-center shadow-lg;
+
+    @screen md {
+      height: 500px;
+    }
+  }
+
+  &__stats {
+    @apply flex items-center justify-center h-full w-full;
+  }
+
+  &__stats,
+  &__textbox {
+    @apply bg-white rounded-lg shadow-lg;
+  }
+
+  &__textbox {
+    @apply py-8 flex justify-center px-6 flex-col;
+  }
+
+  &__textbox-title {
+    @apply font-bold pb-4 text-base lg:text-lg;
+  }
+
+  &__moves-type {
+    @apply pr-6 py-2 inline-block font-semibold text-xs capitalize;
+  }
+
+  &__evolution {
+    @apply bg-tertiary rounded-lg flex items-center justify-center shadow-lg mt-4 p-4;
+  }
+
+  .pokemon-details {
+    @apply flex justify-evenly flex-col;
+  }
+}
