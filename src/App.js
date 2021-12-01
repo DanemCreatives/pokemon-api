@@ -15,7 +15,16 @@ function App() {
   const [pokemon, setPokemon] = useState([]);
   const [totalPokemon, setTotalPokemon] = useState([]);
 
-  const fetchTotalData = () => {
+  useEffect(() => {
+    axios
+      .get(`https://pokeapi.co/api/v2/pokemon?limit=${limit}`)
+      .then((results) => {
+        setPokemon(results.data.results);
+      })
+      .catch((err) => console.log(err));
+  }, [limit]);
+
+  useEffect(() => {
     axios
       .get(`https://pokeapi.co/api/v2/pokemon?limit=9999`)
       .then((results) => {
@@ -23,36 +32,15 @@ function App() {
         setLoading(false);
       })
       .catch((err) => console.log(err));
-  };
+  }, []);
 
-  const fetchLimitedData = () => {
-    axios
-      .get(`https://pokeapi.co/api/v2/pokemon?limit=${limit}`)
-      .then((results) => {
-        setPokemon(results.data.results);
-      })
-      .catch((err) => console.log(err));
-  };
-
-  const fetchTypesData = () => {
+  useEffect(() => {
     axios
       .get(`https://pokeapi.co/api/v2/type`)
       .then((results) => {
         setCategories(results.data.results);
       })
       .catch((err) => console.log(err));
-  };
-
-  useEffect(() => {
-    fetchLimitedData();
-  }, [limit]);
-
-  useEffect(() => {
-    fetchTotalData();
-  }, []);
-
-  useEffect(() => {
-    fetchTypesData();
   }, []);
 
   const filterActiveHandler = (e) => {
@@ -69,7 +57,7 @@ function App() {
     axios
       .get(`https://pokeapi.co/api/v2/type/${e.target.value}`)
       .then((results) => {
-        results.data.pokemon.map((single) => {
+        results.data.pokemon.forEach((single) => {
           pokemonStored.push(single.pokemon);
         });
         setPokemon(pokemonStored);

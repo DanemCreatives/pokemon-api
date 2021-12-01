@@ -10,7 +10,7 @@ function Card({ name, url, index }) {
   const [loading, setLoading] = useState(true);
   let markup = [];
 
-  const fetchData = () => {
+  useEffect(() => {
     axios
       .get(url)
       .then((results) => {
@@ -18,10 +18,6 @@ function Card({ name, url, index }) {
         setLoading(false);
       })
       .catch((err) => console.log(err));
-  };
-
-  useEffect(() => {
-    fetchData();
   }, [url]);
 
   if (!loading) {

@@ -8,7 +8,6 @@ function PokedexSingle({ pokemon }) {
   const params = useParams();
   const [abilities, setAbilities] = useState([]);
   const [loading, setLoading] = useState(true);
-
   const featuredPokemon = pokemon.filter((single) => {
     return single.name.includes(params.id);
   });
@@ -21,7 +20,7 @@ function PokedexSingle({ pokemon }) {
         setLoading(false);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [featuredPokemon]);
 
   return (
     <div className="page pokedex-single">
